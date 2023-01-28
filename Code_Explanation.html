@@ -1,0 +1,58 @@
+1 Sure, I'd be happy to explain the code to you!
+
+    First, we import the cv2 and matplotlib.pyplot libraries. We use cv2 for working with the camera and matplotlib.pyplot for 
+    displaying the images captured by the camera.
+
+    python
+    Copy code
+    import cv2
+    import matplotlib.pyplot as plt
+
+2 Next, we use the cv2.VideoCapture() function to open the camera. The 0 passed as an argument tells the function to open the 
+    default camera (usually the built-in webcam on a laptop or the rear camera on a smartphone).
+
+    python
+    Copy code
+    cap = cv2.VideoCapture(0)
+
+3 In the while loop, we use the cap.read() function to capture a frame from the camera. The function returns a tuple containing 
+    a boolean (ret) indicating whether the frame was read successfully and the frame itself (frame).
+
+    python
+    Copy code
+    ret, frame = cap.read()
+
+
+4 We then use the plt.imshow() function to display the frame using matplotlib.
+
+    python
+    Copy code
+    plt.imshow(frame)
+    plt.show()
+
+5  The plt.ginput(1) function waits for user input, it returns a tuple of the x,y coordinates of the point clicked and if the user pressed the 'q' key the loop will break.
+
+    python
+    Copy code
+    points = plt.ginput(1)
+    if points:
+        break
+
+
+6 Finally, we use the cv2.imwrite() function to save the frame to an image file. The first argument is the file path and name, the second argument is the frame to be saved
+
+    python
+    Copy code
+    cv2.imwrite("captured_image.jpg", frame)
+
+7 And at the end of the script, we release the camera using the cap.release() function.
+
+    python
+    Copy code
+    cap.release()
+
+I hope that helps! Let me know if you have any other questions or if anything is unclear.
+
+
+
+
